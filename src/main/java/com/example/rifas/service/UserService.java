@@ -14,5 +14,6 @@ public interface UserService {
     public Optional<User> findBy(Integer id);
     public User save(User client);
     public void delete(Integer id);
+    public User login(String userName, String password);
 
 }

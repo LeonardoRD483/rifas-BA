@@ -31,4 +31,17 @@ public class UserController {
         User userDto = userServiceImplements.save(user);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/login/{userName}/{password}")
+    public Object loginUser(@PathVariable("userName") String userName, @PathVariable("password") String password) {
+        User users = userServiceImplements.login(userName, password);
+        if (null != users) {
+            return new ResponseEntity<>(users, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Contraseña/UserName Incorrecto", HttpStatus.BAD_GATEWAY);
+
+        }
+    }
+
 }

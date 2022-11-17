@@ -21,5 +21,5 @@ public class User implements Serializable{
     String last_name;
     String date;
     String direction;
-
+    String password;
 }

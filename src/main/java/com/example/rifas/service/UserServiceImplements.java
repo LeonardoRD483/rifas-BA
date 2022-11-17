@@ -1,7 +1,6 @@
 package com.example.rifas.service;
 
 import com.example.rifas.model.User;
-import com.example.rifas.repository.RifasRepository;
 import com.example.rifas.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,5 +38,11 @@ public class UserServiceImplements implements UserService {
     @Override
     public void delete(Integer id) {
 
+    }
+
+    @Override
+    public User login(String userName, String password) {
+        User users = userRepository.findBynameAndAndPassword(userName, password);
+        return users;
     }
 }
